@@ -317,6 +317,8 @@ vim.o.termguicolors = true
 
 vim.o.colorcolumn="80"
 
+vim.o.scrolloff=8
+
 -- [[ Basic Keymaps ]]
 
 -- Keymaps for better default experience
