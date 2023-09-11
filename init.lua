@@ -246,6 +246,7 @@ require('lazy').setup({
           return vim.fn.executable 'make' == 1
         end,
       },
+      "debugloop/telescope-undo.nvim",
     },
   },
 
@@ -357,6 +358,9 @@ require('telescope').setup {
       },
     },
   },
+  extensions = {
+    undo = {},
+  },
 }
 
 -- Enable telescope fzf native, if installed
@@ -397,6 +401,8 @@ local function live_grep_git_root()
 end
 
 vim.api.nvim_create_user_command('LiveGrepGitRoot', live_grep_git_root, {})
+-- Enable telescope undo, if installed
+pcall(require('telescope').load_extension, 'undo')
 
 -- See `:help telescope.builtin`
 vim.keymap.set('n', '<leader>?', require('telescope.builtin').oldfiles, { desc = '[?] Find recently opened files' })
@@ -425,6 +431,8 @@ vim.keymap.set('n', '<leader>sg', require('telescope.builtin').live_grep, { desc
 vim.keymap.set('n', '<leader>sG', ':LiveGrepGitRoot<cr>', { desc = '[S]earch by [G]rep on Git Root' })
 vim.keymap.set('n', '<leader>sd', require('telescope.builtin').diagnostics, { desc = '[S]earch [D]iagnostics' })
 vim.keymap.set('n', '<leader>sr', require('telescope.builtin').resume, { desc = '[S]earch [R]esume' })
+
+vim.keymap.set("n", "<leader>u", "<cmd>Telescope undo<cr>", { desc = 'Telescope [U]ndo' })
 
 -- [[ Configure Treesitter ]]
 -- See `:help nvim-treesitter`
