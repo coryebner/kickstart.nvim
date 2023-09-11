@@ -14,6 +14,6 @@ return {
     require('neo-tree').setup {}
   end,
   keys = {
-    { "<leader>t", "<cmd>Neotree toggle<cr>", desc = "Neotree" },
+    { "<leader>te", "<cmd>Neotree toggle<cr>", desc = "Neotree" },
   },
 }
