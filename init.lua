@@ -592,7 +592,9 @@ local servers = {
   -- tsserver = {},
   -- html = { filetypes = { 'html', 'twig', 'hbs'} },
 
-  apex_ls = {},
+  apex_ls = {
+    filetypes = { 'apexcode', 'apex' },
+  },
   lua_ls = {
     Lua = {
       workspace = { checkThirdParty = false },
@@ -704,3 +706,16 @@ cmp.setup {
 
 -- The line beneath this is called `modeline`. See `:help modeline`
 -- vim: ts=2 sts=2 sw=2 et
+
+-- Add filetypes
+vim.filetype = on
+
+vim.filetype.add({
+  extension = {
+    cls = 'apex',
+    apex = 'apex',
+    trigger = 'apex',
+    soql = 'soql',
+    sosl = 'sosl',
+  }
+})
