@@ -11,7 +11,11 @@ return {
     "MunifTanjim/nui.nvim",
   },
   config = function ()
-    require('neo-tree').setup {}
+    require('neo-tree').setup {
+      window = {
+        position = "float",
+      },
+    }
   end,
   keys = {
     { "<leader>te", "<cmd>Neotree toggle<cr>", desc = "Neotree" },
